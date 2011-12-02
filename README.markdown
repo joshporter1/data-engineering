@@ -6,6 +6,7 @@ This web-based application is designed to take a text file delimited by tabs and
 ## Application Prerequisites
 1. You must have a hostname, username, and a password to a SQL database.
 2. (RECOMMENDED) Best viewed in Google Chrome 10+
+3. MAMP for Mac for a MySQL Database.
 
 ## How to use this application
 1. Load to the index of the application.

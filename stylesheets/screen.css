@@ -612,7 +612,7 @@ table th {
 /******** Form styles *********/
 /* line 120, ../sass/screen.scss */
 input#db-input {
-  color: #eeeeee;
+  color: #333333;
   font: 18px "Century Gothic" Helvetica Arial sans-serif;
 }
 

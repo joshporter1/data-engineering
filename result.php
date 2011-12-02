@@ -59,8 +59,8 @@
 			echo "<p>Using database ".$db_name."</p>";
 		}
 		else{
-			mysql_query("DROP DATABASE ".$db_name,$link);
-			mysql_query("CREATE DATABASE ".$db_name,$link);
+			mysql_query("DROP DATABASE ".$db_name,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
+			mysql_query("CREATE DATABASE ".$db_name,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 			echo "<p>Database created</p>";
 		}
 	}
@@ -97,7 +97,7 @@
 		$flinearr[0] varchar(30)
 		)";
 		//Execute query
-		mysql_query($sql,$link);
+		mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 		
 		//Items table
 		$sql = "CREATE TABLE Items
@@ -108,7 +108,7 @@
 		$flinearr[2] decimal(5, 2)
 		)";
 		//Execute query
-		mysql_query($sql,$link);
+		mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 		
 		//Merchants table
 		$sql = "CREATE TABLE Merchants
@@ -119,7 +119,7 @@
 		$flinearr[4] varchar(30)
 		)";
 		//Execute query
-		mysql_query($sql,$link);
+		mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 		
 		
 		
@@ -134,7 +134,7 @@
 		purchase_count int
 		)";
 		//Execute query
-		mysql_query($sql,$link);
+		mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 		
 		//iterate through the lines and add entries accordingly until end of file
 		while(($line = fgets($fo)) != false ){
@@ -154,7 +154,7 @@
 			if($linearr[0] != ""){
 				if(!mysql_num_rows(mysql_query("SELECT $flinearr[0] FROM Purchasers WHERE $flinearr[0] = '$linearr[0]'"))){
 					//execute query
-					mysql_query($sql,$link);
+					mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 				}
 			}
 			
@@ -165,7 +165,7 @@
 			if($linearr[0] != ""){
 				if(!mysql_num_rows(mysql_query("SELECT $flinearr[1] FROM Items WHERE $flinearr[1] = '$linearr[1]'"))){
 					//execute query
-					mysql_query($sql,$link);
+					mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 				}
 			}
 			
@@ -176,7 +176,7 @@
 			if($linearr[0] != ""){
 				if(!mysql_num_rows(mysql_query("SELECT $flinearr[4] FROM Merchants WHERE $flinearr[4] = '$linearr[4]'")) && !mysql_num_rows(mysql_query("SELECT $flinearr[5] FROM Merchants WHERE $flinearr[5] = '$linearr[5]'"))){
 					//execute query
-					mysql_query($sql,$link);
+					mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 				}
 			}
 			
@@ -190,7 +190,7 @@
 			//check for empty value
 			if($linearr[0] != ""){
 				//execute query
-				mysql_query($sql,$link);
+				mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 			}
 		}//end while
 		
@@ -205,7 +205,7 @@
 	}
 	
 	$sql = "SELECT SUM(Items.item_price*Orders.purchase_count) FROM Orders INNER JOIN Items ON Orders.i_id=Items.i_id;";
-	$result = mysql_query($sql,$link);
+	$result = mysql_query($sql,$link) or die('Query failed: ' . mysql_error() . "<br />\n$sql");
 	$row = mysql_fetch_array($result);
 	echo "Gross Income: ".$row[0];
 	

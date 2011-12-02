@@ -25,20 +25,20 @@
 <body>
 
   <div id="container">
-    <header>
+    
+    <div id="main-orders" role="main">
+		<header>
 			Orders
     </header>
-    <div id="main-orders" role="main">
-
 <?php
 
-	//Connect to MySQL server
 	
 	//Connect to MySQL server
 	$db_host = $_GET["db_host"];
 	$db_user = $_GET["db_user"];
 	$db_pw = $_GET["db_pw"];
 	
+	//db connect
 	$link = mysql_connect($db_host, $db_user, $db_pw);
 	if(!$link){
 		die('Could not connect'. mysql_error());
@@ -58,16 +58,18 @@
 	}
 	mysql_select_db($db_name, $link);
 	
-	//Build query
+	//Build query to join the tables and make the proper orders table
 	$sql = "SELECT Orders.id, Purchasers.purchaser_name, Items.item_description, Items.item_price, Orders.purchase_count, Merchants.merchant_address, Merchants.merchant_name FROM Orders 
 	INNER JOIN Items ON Orders.i_id=Items.i_id
 	INNER JOIN Purchasers ON Orders.p_id=Purchasers.p_id
 	INNER JOIN Merchants ON Orders.m_id=Merchants.m_id";
 	//execute query
 	$result = mysql_query($sql,$link);
+	
+	//build output table
 	echo "<table>";
 	echo "<tr><th>ID</th><th>Purchaser Name</th><th>Product</th><th>Price</th><th>#</th><th>Merchant Address</th><th>Merchant Name</th></tr>";
-	
+
 	while($row = mysql_fetch_array($result)){
 		echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td><td>".$row[6]."</td></tr>";
 	}
@@ -76,6 +78,7 @@
 	mysql_close($link);
 ?>
 
+			<!-- Hidden form to send db variables back to results -->
 			<form id="orders" action="result.php" method="POST" enctype="multipart/form-data">
 
 						<input id = "db-name" name="db_name" type="text" value="<?php echo $db_name ?>" style="display:none;">
@@ -92,7 +95,7 @@
 			
 			<footer>
 				<div id="about-content">
-					<p> Textfile Database Importer - Rapidly developed by <a href="">Joshua Porter</a>. </p>
+					<p> Textfile Database Importer </p> <p> Rapidly developed by</p><p> <a href="http://joshport.com" target="_blank">Joshua Porter</a> </p>
 				</div>
 				<a id = "about-button" href="#">
 					About
@@ -103,6 +106,7 @@
 
 	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+	
 
 
 	  <!-- scripts concatenated and minified via ant build script-->

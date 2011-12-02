@@ -517,100 +517,106 @@ td {
   }
 }
 /******** Main styles *********/
-/* line 35, ../sass/screen.scss */
+/* line 38, ../sass/screen.scss */
 body {
   background-color: #bbb;
 }
 
-/* line 40, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 #container {
   width: 960px;
   margin: 50px auto;
   text-align: center;
 }
 
-/* line 46, ../sass/screen.scss */
+/* line 49, ../sass/screen.scss */
 header {
   width: 100%;
   text-align: center;
-  color: #b41414;
-  font: bold 34px "Futura" Helvetica Arial sans-serif;
+  color: #eeeeee;
+  background: #222222;
+  font: bold 24px "Futura" Helvetica Arial sans-serif;
   text-shadow: 0px 0px 1px #000;
   -moz-text-shadow: 0px 0px 1px #000;
   -webkit-text-shadow: 0px 0px 1px #000;
+  border-bottom: 5px solid #3399ff;
+  z-index: 1337;
 }
 
-/* line 54, ../sass/screen.scss */
+/* line 60, ../sass/screen.scss */
 #main {
   width: 300px;
   height: 400px;
-  margin: 15px auto 0;
-  background: #b41414;
-  color: #eee;
+  margin: 0 auto;
+  background: #eeeeee;
+  color: #333333;
   font: 18px "Century Gothic" Helvetica Arial sans-serif;
-  padding: 20px 0 50px;
+  padding: 0 0 50px;
   box-shadow: 0px 0px 5px #000;
   -moz-box-shadow: 0px 0px 5px #000;
   -webkit-box-shadow: 0px 0px 5px #000;
   position: relative;
-}
-
-/* line 66, ../sass/screen.scss */
-p {
-  margin: 5px 20px 10px;
-  color: #eee;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  z-index: 50;
 }
 
 /* line 73, ../sass/screen.scss */
+p {
+  margin: 5px 20px 10px;
+  color: #333333;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+/* line 80, ../sass/screen.scss */
 #main-orders {
   width: auto;
   height: auto;
-  margin: 15px auto 0;
-  background: #b41414;
-  color: #eee;
+  margin: 0 auto;
+  background: #eeeeee;
+  color: #eeeeee;
   font: 18px "Century Gothic" Helvetica Arial sans-serif;
-  padding: 20px 0 50px;
+  padding: 0 0 50px;
   box-shadow: 0px 0px 5px #000;
   -moz-box-shadow: 0px 0px 5px #000;
   -webkit-box-shadow: 0px 0px 5px #000;
   position: relative;
+  z-index: 50;
 }
 
 /******** Table styles *********/
-/* line 87, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 table {
   width: 100%;
   margin: 0 0 15px;
 }
 
-/* line 92, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 table tbody tr td, table th {
-  border: 1px solid #eee;
+  border: 1px solid #3399ff;
   font-size: 16px;
   padding: 5px 0 5px 5px;
 }
 
-/* line 98, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 table tbody tr td {
   font-size: 14px;
+  color: #333333;
 }
 
-/* line 102, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 table th {
   font-weight: bold;
-  color: #999;
+  color: #333333;
 }
 
 /******** Form styles *********/
-/* line 111, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 input#db-input {
-  color: #eee;
+  color: #eeeeee;
   font: 18px "Century Gothic" Helvetica Arial sans-serif;
 }
 
-/* line 116, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
 #submit {
   width: 100%;
   position: absolute;
@@ -619,7 +625,7 @@ input#db-input {
   height: 50px;
   -webkit-appearance: none;
   border: none;
-  color: #eee;
+  color: #eeeeee;
   text-decoration: none;
   line-height: 50px;
   background: -webkit-gradient(linear, left top, left bottom, from(#666666), to(#999999));
@@ -628,9 +634,9 @@ input#db-input {
   /* for firefox 3.6+ */
 }
 
-/* line 131, ../sass/screen.scss */
+/* line 140, ../sass/screen.scss */
 #submit:hover {
-  color: #eee;
+  color: #eeeeee;
   background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#666666));
   /* for webkit browsers */
   background: -moz-linear-gradient(top, #cccccc, black);
@@ -638,11 +644,12 @@ input#db-input {
 }
 
 /******** About slider styles *********/
-/* line 139, ../sass/screen.scss */
+/* line 151, ../sass/screen.scss */
 #about-button {
-  margin: 0 auto;
+  z-index: 0;
   width: 100px;
   line-height: 25px;
+  margin: 0 auto;
   display: block;
   text-decoration: none;
   border-bottom-left-radius: 15px;
@@ -651,20 +658,20 @@ input#db-input {
   -moz-border-bottom-right-radius: 15px;
   -webkit-border-bottom-left-radius: 15px;
   -webkit-border-bottom-right-radius: 15px;
-  color: #eee;
+  color: #eeeeee;
   background: -webkit-gradient(linear, left top, left bottom, from(#3399ff), to(#0066cc));
   /* for webkit browsers */
   background: -moz-linear-gradient(top, #cccccc, black);
   /* for firefox 3.6+ */
 }
 
-/* line 151, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 #about-content {
   display: none;
-  width: 250px;
   margin: 0 auto;
-  background: #eee;
-  padding: 15px;
+  width: 250px;
+  background: #eeeeee;
+  padding: 10px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   -moz-border-bottom-left-radius: 15px;
@@ -672,4 +679,18 @@ input#db-input {
   -webkit-border-bottom-left-radius: 15px;
   -webkit-border-bottom-right-radius: 15px;
   border: 2px solid #3399ff;
+}
+
+/* line 174, ../sass/screen.scss */
+#about-content p {
+  color: black;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* line 181, ../sass/screen.scss */
+#about-content a {
+  text-decoration: none;
+  color: #b41414;
 }

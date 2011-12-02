@@ -8,7 +8,10 @@
 
 
 // Create variables
-$red: #B41414;
+$bg: #222;
+$light-bg: #eee;
+$text: #eee;
+$dark-text: #333;
 @mixin box-shadow{
 	box-shadow: 0px 0px 5px #000;
 	-moz-box-shadow: 0px 0px 5px #000;
@@ -46,40 +49,45 @@ body{
 header{
 	width: 100%;
 	text-align:center;
-	color: $red;
-	font: bold 34px "Futura" Helvetica Arial sans-serif;
+	color: $text;
+	background: $bg;
+	font: bold 24px "Futura" Helvetica Arial sans-serif;
 	@include text-shadow;
+	border-bottom: 5px solid #3399ff;
+	z-index: 1337;
 }
 
 #main{
 	width: 300px;
 	height: 400px;
-	margin: 15px auto 0;
-	background: $red;
-	color:#eee;
+	margin: 0 auto;
+	background: $light-bg;
+	color:$dark-text;
 	font: 18px "Century Gothic" Helvetica Arial sans-serif;
-	padding: 20px 0 50px;
+	padding: 0 0 50px;
 	@include box-shadow;
 	position:relative;
+	z-index: 50;
 }
 
 p{
 	margin: 5px 20px 10px;
-	color: #eee;
-	border-bottom: 1px solid #eee;
+	color: $dark-text;
+	border-bottom: 1px solid #333;
 	padding-bottom: 10px;
 }
 
 #main-orders{
 	width: auto;
 	height: auto;
-	margin: 15px auto 0;
-	background: $red;
-	color:#eee;
+	margin: 0 auto ;
+	background: $light-bg;
+	color:$text;
 	font: 18px "Century Gothic" Helvetica Arial sans-serif;
-	padding: 20px 0 50px;
+	padding: 0 0 50px;
 	@include box-shadow;
 	position:relative;
+	z-index: 50;
 }
 
 /******** Table styles *********/
@@ -90,18 +98,19 @@ table{
 }
 
 table tbody tr td, table th{
-	border: 1px solid #eee;
+	border: 1px solid #3399ff;
 	font-size: 16px;
 	padding: 5px 0 5px 5px;
 }
 
 table tbody tr td{
 	font-size: 14px;
+	color: $dark-text;
 }
 
 table th{
 	font-weight: bold;
-	color: #999
+	color: $dark-text;
 }
 
 
@@ -109,7 +118,7 @@ table th{
 /******** Form styles *********/
 
 input#db-input{
-	color:#eee;
+	color:$text;
 	font: 18px "Century Gothic" Helvetica Arial sans-serif;
 }
 
@@ -121,7 +130,7 @@ input#db-input{
 	height: 50px;
 	-webkit-appearance: none;
 	border:none;
-	color:#eee;
+	color:$text;
 	text-decoration:none;
 	line-height: 50px;
 	background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#999)); /* for webkit browsers */
@@ -129,31 +138,47 @@ input#db-input{
 }
 
 #submit:hover{
-	color:#eee;
+	color:$text;
 	background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#666)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */
 }
 
 /******** About slider styles *********/
 
+
+
+
 #about-button{
-	margin: 0 auto;
+	z-index: 0;
 	width: 100px;
 	line-height: 25px;
+	margin: 0 auto;
 	display:block;
 	text-decoration:none;
 	@include border-bottom-radius;
-	color:#eee;
+	color:$text;
 	background: -webkit-gradient(linear, left top, left bottom, from(#3399ff), to(#0066cc)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */	
 }
 
 #about-content{
 	display:none;
-	width: 250px;
 	margin: 0 auto;
-	background:#eee;
-	padding: 15px;
+	width: 250px;
+	background:$text;
+	padding: 10px;
 	@include border-bottom-radius;
 	border: 2px solid #3399ff;
+}
+
+#about-content p{
+	color: black;
+	margin:0;
+	padding:0;
+	border:none;
+}
+
+#about-content a{
+	text-decoration: none;
+	color: #b41414;
 }

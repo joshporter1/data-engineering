@@ -26,11 +26,11 @@
 <body>
 
   <div id="container">
-    <header>
+    
+    <div id="main" role="main">
+		<header>
 			Creating the database...
     </header>
-    <div id="main" role="main">
-
 <?php
 
 	//Connect to MySQL server
@@ -230,7 +230,7 @@
 			</div><!-- End main -->
 		  <footer>
 				<div id="about-content">
-					asdfjklasd
+				<p> Textfile Database Importer </p> <p> Rapidly developed by</p><p> <a href="http://joshport.com" target="_blank">Joshua Porter</a> </p>
 				</div>
 				<a id = "about-button" href="#">
 					About

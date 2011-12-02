@@ -1,0 +1,159 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "html5";
+
+
+// Create variables
+$red: #B41414;
+@mixin box-shadow{
+	box-shadow: 0px 0px 5px #000;
+	-moz-box-shadow: 0px 0px 5px #000;
+	-webkit-box-shadow: 0px 0px 5px #000;
+}
+
+@mixin text-shadow{
+	text-shadow: 0px 0px 1px #000;
+	-moz-text-shadow:  0px 0px 1px #000;
+	-webkit-text-shadow: 0px 0px 1px #000;
+}
+
+@mixin border-bottom-radius{
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	-moz-border-bottom-left-radius: 15px;
+	-moz-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+}
+
+/******** Main styles *********/
+
+body{
+	background-color: #bbb;
+	
+}
+
+#container{
+	width: 960px;
+	margin: 50px auto;
+	text-align:center;
+}
+
+header{
+	width: 100%;
+	text-align:center;
+	color: $red;
+	font: bold 34px "Futura" Helvetica Arial sans-serif;
+	@include text-shadow;
+}
+
+#main{
+	width: 300px;
+	height: 400px;
+	margin: 15px auto 0;
+	background: $red;
+	color:#eee;
+	font: 18px "Century Gothic" Helvetica Arial sans-serif;
+	padding: 20px 0 50px;
+	@include box-shadow;
+	position:relative;
+}
+
+p{
+	margin: 5px 20px 10px;
+	color: #eee;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+}
+
+#main-orders{
+	width: auto;
+	height: auto;
+	margin: 15px auto 0;
+	background: $red;
+	color:#eee;
+	font: 18px "Century Gothic" Helvetica Arial sans-serif;
+	padding: 20px 0 50px;
+	@include box-shadow;
+	position:relative;
+}
+
+/******** Table styles *********/
+
+table{
+	width: 100%;
+	margin: 0 0 15px;
+}
+
+table tbody tr td, table th{
+	border: 1px solid #eee;
+	font-size: 16px;
+	padding: 5px 0 5px 5px;
+}
+
+table tbody tr td{
+	font-size: 14px;
+}
+
+table th{
+	font-weight: bold;
+	color: #999
+}
+
+
+
+/******** Form styles *********/
+
+input#db-input{
+	color:#eee;
+	font: 18px "Century Gothic" Helvetica Arial sans-serif;
+}
+
+#submit{
+	width: 100%;
+	position:absolute;
+	bottom:0;
+	left:0;
+	height: 50px;
+	-webkit-appearance: none;
+	border:none;
+	color:#eee;
+	text-decoration:none;
+	line-height: 50px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#999)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */	
+}
+
+#submit:hover{
+	color:#eee;
+	background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#666)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */
+}
+
+/******** About slider styles *********/
+
+#about-button{
+	margin: 0 auto;
+	width: 100px;
+	line-height: 25px;
+	display:block;
+	text-decoration:none;
+	@include border-bottom-radius;
+	color:#eee;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3399ff), to(#0066cc)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #ccc,  #000); /* for firefox 3.6+ */	
+}
+
+#about-content{
+	display:none;
+	width: 250px;
+	margin: 0 auto;
+	background:#eee;
+	padding: 15px;
+	@include border-bottom-radius;
+	border: 2px solid #3399ff;
+}

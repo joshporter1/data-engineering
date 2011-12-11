@@ -32,7 +32,7 @@
 			Creating the database...
     </header>
 <?php
-
+	error_reporting(0);
 	//Connect to MySQL server
 	$db_host = $_POST["db_host"];
 	$db_user = $_POST["db_user"];
